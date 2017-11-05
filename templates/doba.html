@@ -1,0 +1,124 @@
+{% extends "home.html" %}
+    {% block div %}
+
+<br>
+<form class="form-inline row" name="myForm">
+    <div>
+        <table class="table-hover" id="myTable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Zavarovalni čas zavarovanca</th>
+                    <th>Zavarovalni čas zavezanca</th>
+                    <th>L</th>
+                    <th>M</th>
+                    <th>D</th>
+                </tr>
+            </thead>
+            <tr>
+                <td><input class="form-control" style="margin: 5px 10px;" type="checkbox"></td>
+                <td>
+                    <div class="form-group" style="margin: 5px 10px;">
+                        <div class='input-group date datetimepicker10'>
+                            <input type='text' class="form-control"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar">
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group" style="margin: 5px 10px;">
+                        <div class='input-group date datetimepicker10'>
+                            <input type='text' class="form-control"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar">
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </td>
+                <td style="width: 12%;"><input class="form-control" style="width: 70%; margin: 5px 10px;" type="number" min="1" max="42" required value="40"></td>
+                <td style="width: 12%">
+                     <select class="form-control" style="width: 70%; margin: 5px 10px;">
+                         <option value="36">36</option>
+                         <option value="38">38</option>
+                         <option value="40" selected>40</option>
+                         <option value="42">42</option>
+                     </select>
+                </td>
+                <td style="width: 7%"><p style="margin: 5px 10px; width: 70%" class="form-control"> {{ years }}</p></td>
+                <td style="width: 7%"><p style="margin: 5px 10px; width: 70%" class="form-control"> {{ months }}</p></td>
+                <td style="width: 7%"><p style="margin: 5px 10px; width: 70%" class="form-control">{{ days }}</p></td>
+            </tr>
+        </table>
+    </div>
+
+
+</form>
+
+<div class="d-flex justify-content-between" style="margin: 3% 0%">
+    <button class="btn-default" id="selectAll">Izberi vse</button>
+    <button class="btn-default" onclick="addRow()">Dodaj vrstico</button>
+    <button class="btn-default" onclick="deleteRow()">Odstrani vrstico</button>
+    <button class="btn-default" onclick="calculate()">Izračunaj dobo</button>
+</div>
+
+
+
+<script type="text/javascript">
+
+function addRow() {
+    var table = document.getElementById("myTable");
+    var row = table.insertRow(document.getElementById("myTable").rows.length);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+    var cell7 = row.insertCell(6);
+    var cell8 = row.insertCell(7);
+    cell1.innerHTML += '<td><input class="form-control" type="checkbox" style="margin: 5px 10px"></td>';
+    cell2.innerHTML += '<td><div class="form-group" style="margin: 5px 10px"><div class="input-group date datetimepicker10"><input type="text" class="form-control"/><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div></div></td>';
+    cell3.innerHTML += '<td><div class="form-group" style="margin: 5px 10px"><div class="input-group date datetimepicker10"><input type="text" class="form-control"/><span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span></div></div></td>';
+    cell4.innerHTML += '<td style="width: 12%;"><input class="form-control" style="margin: 5px 10px; width: 70%;" type="number" min="1" max="42" required value="40"></td';
+    cell5.innerHTML += '<td style="width: 12%;"><select class="form-control" style="margin: 5px 10px; width: 70%;"><option value="36">36</option><option value="38">38</option><option value="40" selected >40</option><option value="42">42</option></select></td>';
+    cell6.innerHTML += '<td style="width: 7%"><p class="form-control" style="margin: 5px 10px; width: 70%"></p></td>';
+    cell7.innerHTML += '<td style="width: 7%"><p class="form-control" style="margin: 5px 10px; width: 70%"></p></td>';
+    cell8.innerHTML += '<td style="width: 7%"><p class="form-control" style="margin: 5px 10px; width: 70%"></p></td>';
+}
+
+function deleteRow() {
+    document.getElementById("myTable").deleteRow( (document.getElementById("myTable").rows.length) -1 );
+}
+
+
+$('body').on('click',".datetimepicker10", function(){
+ $('.datetimepicker10').datetimepicker({
+                viewMode: 'years',
+                format: 'DD/MM/YYYY'
+            });
+        });
+
+$(document).ready(function () {
+  $('body').on('click', '#selectAll', function () {
+    if ($(this).hasClass('allChecked')) {
+        $('input[type="checkbox"]', '#myTable').prop('checked', false);
+    } else {
+        $('input[type="checkbox"]', '#myTable').prop('checked', true);
+    }
+    $(this).toggleClass('allChecked');
+  })
+});
+
+
+
+
+</script>
+
+
+{% endblock %}

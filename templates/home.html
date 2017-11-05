@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home page</title>
+        <meta name="description" content="Web designer - from junior to senior developer and designer">
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="" />
+
+      <!--keywords-->
+        <meta name="keywords" content="junior web developer, senior web developer, web designer, skills in html, css, javascript, python, bootstrap, own projects">
+        <meta name="author" content="Urska Rifelj">
+
+      <!--refresh document every 30 sec
+      <meta http-equiv="refresh" content="30">-->
+
+      <!--meta data-->
+        <meta charset="utf-8">
+
+      <!--meta for bootstrap responsive desgin-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+        <!--My own style css-->
+        <link rel="stylesheet" href="assets/style.css">
+
+
+        <!-- Optional theme for datetimepicker-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment-with-locales.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/locales/bootstrap-datepicker.sl.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+
+    </head>
+
+    <body>
+    <!--    {% if logiran %}
+            <p>Hello!</p>
+
+                <p>Select time zone</p>
+        <form action="/" method="post">
+
+                <div class="container">
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" name="start"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-5'>
+        <div class="form-group">
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" name="end"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
+
+
+
+
+
+                <button type="submit">OK</button>
+             </form>
+
+        <a href="/test"><button>Preveri čas!</button></a>
+
+            <p><a href="{{ logout_url }}">Log out</a></p>
+
+        {% else %}
+
+        <p>Please sign in if you want us to alert you to exercise</p>
+
+        <a href="{{ login_url }}">Google login</a>
+
+         <form action="">
+  User name:<br>
+  <input type="text" name="username"><br>
+  User password:<br>
+  <input type="password" name="psw">
+             <button type="submit">Login</button>
+</form>
+
+        <a href="/goodbye"><button>I do not want to exercise</button></a>
+
+{% endif %}
+-->
+        <div class="container">
+            <div class="row" style="margin: 5px -30px">
+                <div class='col-sm-12'>
+                     <nav class="navbar navbar-inverse">
+                          <div class="container-fluid">
+                            <div class="navbar-header">
+                              <a class="navbar-brand" href="/">ZPIZ cheat sheet</a>
+                            </div>
+                              <ul class="nav navbar-nav">
+                                  <li><a href="#">Izračun delovnih dni in ur</a></li>
+                                  <li><a href="/pravnomocnost">Pravnomočnost</a></li>
+                                  <li><a href="/doba">Izračun dobe</a></li>
+                                  <li><a href="/zpiz">ZPIZ</a></li>
+                                  <li><a href="zpiz1">ZPIZ-1</a></li>
+                                  <li><a href="zpiz2">ZPIZ-2</a></li>
+                                  <li><a href="zmepiz1">ZMEPIZ-1</a></li>
+                              </ul>
+                              <ul class="nav navbar-nav navbar-right">
+                                  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                              </ul>
+                          </div>
+                     </nav>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+                <div class="col-sm-9 maincontainer p-2">
+
+                    {% block div %}
+                    <p style="font-size: 150%; padding: 1%">Danes je {{ today }} {{ datum }}</p>
+                    <div style="padding: 0% 8%">
+                        <img src="http://ciklon.si/stran/wp-content/uploads/2014/02/NationalGeographic_1754277-web-2.jpg" class="img-responsive img-rounded"/>
+                    </div>
+                    <p style="font-size: 150%; font-style: italic; padding: 1%; margin-top: -15%; background-color: white; opacity: 0.5; padding: 3% 10%"> "{{ quote }}"</p><br><br><br><br>
+                    {% endblock %}
+                </div>
+                <div class='col-sm-3'>
+                    <p>DESNA TRETJINA STRANI</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

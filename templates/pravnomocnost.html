@@ -1,0 +1,52 @@
+{% extends "home.html" %}
+    {% block div %}
+
+
+        <form method="post" action="/pravnomocnost">
+            <div class="form-group">
+
+                <div class='input-group date' id='datetimepicker5' style="padding: 1% 30%">
+                    <input type='text' class="form-control" name="selected_date_by_user" required/>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+
+                <div class="input-group" style="padding: 1% 30%; width: 100%">
+                    <input class="form-control" type="number" min="1" name="selected_number_by_user" required value="15" style="border-radius: 2%"/>
+                </div>
+
+                <div class="input-group" style="padding: 1% 30%; width: 100%">
+                    <select class="form-control" name="selected_unit_by_user">
+                        <option value="day">Dni</option>
+                        <option value="month">Mesecev</option>
+                        <option value="year">Let</option>
+                    </select>
+                </div>
+
+                <div class="input-group" style="padding: 1% 30%; width: 100%">
+                    <button class="btn-default" style="border-radius: 5px;" type="submit">Izračunaj</button></div>
+
+                        <div class="box">
+                            <p>Izbrani datum:<span> {{ user_selected_date }}</span></p>
+                            </div>
+                        <div class="box">
+                            <p>Zadnji dan roka: <span>{{ user_selected_number }}</span></p>
+                            </div>
+                        <div class="box">
+                            <p><b>Pravnomočnost: {{ user_selected_unit}}</b></p>
+                            </div>
+                    </div>
+
+                        <script type="text/javascript">
+
+                            $(function () {
+                                $('#datetimepicker5').datetimepicker({
+                                    locale: 'sl',
+                                    format: 'DD.MM.YYYY',
+                                });
+                            });
+                        </script>
+                    </form>
+
+
+{% endblock div %}
+

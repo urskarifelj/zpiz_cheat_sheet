@@ -1,0 +1,23 @@
+body {
+    background-color:  #f2f2f2
+}
+
+
+.maincontainer {
+    height: 100%;
+    width: 75%;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    color: #333333;
+}
+
+
+th {
+    font-size: 80%
+}
+
+table, th, td {
+    text-align: center;
+    margin: 0px 10px;
+}
